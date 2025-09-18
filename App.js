@@ -18,6 +18,13 @@ import {
   SegmentedButtons,
   Text,
 } from "react-native-paper";
+import { 
+  UnorderedListOutlined, 
+  BedOutlined, 
+  StarOutlined, 
+  CheckOutlined, 
+  DeleteOutlined 
+} from '@ant-design/icons-react-native';
 
 // Componentes
 import Header from "./components/Header";
@@ -136,9 +143,21 @@ export default function App() {
             value={filter}
             onValueChange={setFilter}
             buttons={[
-              { value: "all", label: "Todos", icon: "format-list-bulleted" },
-              { value: "available", label: "Disponíveis", icon: "sleep" },
-              { value: "recruited", label: "Recrutados", icon: "star" },
+              { 
+                value: "all", 
+                label: "Todos", 
+                icon: ({ size, color }) => <UnorderedListOutlined style={{ fontSize: size || 16, color }} /> 
+              },
+              { 
+                value: "available", 
+                label: "Disponíveis", 
+                icon: ({ size, color }) => <BedOutlined style={{ fontSize: size || 16, color }} /> 
+              },
+              { 
+                value: "recruited", 
+                label: "Recrutados", 
+                icon: ({ size, color }) => <StarOutlined style={{ fontSize: size || 16, color }} /> 
+              },
             ]}
             style={{ flex: 1 }}
           />
@@ -165,7 +184,12 @@ export default function App() {
             </Dialog.Content>
             <Dialog.Actions>
               <Button onPress={cancelAddCharacter}>Cancelar</Button>
-              <Button onPress={addCharacterConfirmed} icon="check">Confirmar</Button>
+              <Button 
+                onPress={addCharacterConfirmed} 
+                icon={({ size, color }) => <CheckOutlined style={{ fontSize: size || 16, color }} />}
+              >
+                Confirmar
+              </Button>
             </Dialog.Actions>
           </Dialog>
         </Portal>
@@ -181,7 +205,13 @@ export default function App() {
             </Dialog.Content>
             <Dialog.Actions>
               <Button onPress={cancelRemoveCharacter}>Não</Button>
-              <Button onPress={removeCharacterConfirmed} icon="delete">Sim</Button>
+              <Button 
+                onPress={removeCharacterConfirmed} 
+                icon={({ size, color }) => <DeleteOutlined style={{ fontSize: size || 16, color: color || 'red' }} />}
+                textColor="red"
+              >
+                Sim
+              </Button>
             </Dialog.Actions>
           </Dialog>
         </Portal>

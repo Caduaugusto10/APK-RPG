@@ -13,17 +13,21 @@ Este projeto foi refatorado para uma estrutura mais profissional, com componenti
 
 2) Biblioteca de UI
 - Adotado React Native Paper.
+- Integrado @ant-design/icons-react-native para ícones consistentes e modernos.
 - Substituições realizadas:
   - `TouchableOpacity` -> `Button`/ações dentro de `Card`.
   - `TextInput` nativo -> `TextInput` do Paper (modo `outlined`).
   - Layout da lista -> `Card` (`CharacterCard`).
+  - Ícones nativos -> Ícones do Ant Design para melhor consistência visual.
 
 3) Melhorias implementadas (3+)
 - Modal de confirmação (Dialog do Paper)
   - Ao adicionar um personagem (confirmação do nome informado).
   - Ao remover um personagem (confirmação com nome).
 - Ícones visuais
-  - Usados ícones do Paper (ex.: `account-plus`, `delete`) e `MaterialIcons` no avatar do card.
+  - Migrados para ícones do Ant Design (@ant-design/icons-react-native) para maior consistência.
+  - Substituídos ícones do Paper e MaterialIcons por equivalentes do antd (ex.: `UserAddOutlined`, `DeleteOutlined`).
+  - Melhor padronização visual e maior variedade de ícones disponíveis.
 - Feedback visual (Snackbar)
   - Exibido ao adicionar, remover e recrutar/desmarcar personagem.
 - Filtro de personagens (extra)
@@ -47,7 +51,17 @@ Este projeto foi refatorado para uma estrutura mais profissional, com componenti
 ```
 npm install
 ```
-2. Execute
+
+2. Instale a biblioteca de ícones do Ant Design
+```
+npm install @ant-design/icons-react-native
+```
+Ou se preferir usar react-native-vector-icons com ícones do antd:
+```
+npm install react-native-vector-icons
+```
+
+3. Execute
 ```
 npm run start
 ```
@@ -60,4 +74,5 @@ Set-ExecutionPolicy RemoteSigned
 ## Próximos passos (opcional)
 - Persistir personagens com `expo-sqlite`.
 - Tematizar o Paper (`MD3`) com cores do app.
+- Expandir uso dos ícones Ant Design para cobrir toda a interface.
 - Testes unitários dos reducers/ações de lista.

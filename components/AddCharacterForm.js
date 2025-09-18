@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { View, StyleSheet } from 'react-native';
 import { TextInput, Button } from 'react-native-paper';
+import { PlusOutlined } from '@ant-design/icons-react-native';
 
 const AddCharacterForm = ({ onAdd }) => {
   const [name, setName] = useState('');
@@ -21,7 +22,12 @@ const AddCharacterForm = ({ onAdd }) => {
         style={styles.input}
         mode="outlined"
       />
-      <Button mode="contained" onPress={handleAdd} style={styles.button} icon="plus">
+      <Button 
+        mode="contained" 
+        onPress={handleAdd} 
+        style={styles.button} 
+        icon={({ size, color }) => <PlusOutlined style={{ fontSize: size || 16, color }} />}
+      >
         Adicionar
       </Button>
     </View>
